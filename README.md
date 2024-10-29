@@ -1,116 +1,128 @@
-# Bluetooth LE Spam [![Discord](https://img.shields.io/discord/1170266776731406386?label=Discord&link=https://discord.gg/x4e4Gma585)](https://discord.gg/x4e4Gma585)
+  Bluetooth LE Spam /\* Genel sayfa stili \*/ body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; } h1 { text-align: center; margin-top: 20px; } /\* Dil seçme menüsü stili \*/ .language-selector { position: relative; display: inline-block; text-align: center; margin: 10px; } .language-selector button { background-color: #008cba; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; } .language-selector-content { display: none; position: absolute; background-color: #f4f4f9; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 5px; } .language-selector-content a { color: #333; padding: 10px 20px; text-decoration: none; display: block; border-bottom: 1px solid #ddd; } .language-selector-content a:hover { background-color: #ddd; } /\* İçerik stili \*/ .content { max-width: 800px; margin: 20px auto; padding: 20px; background-color: white; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); } img { max-width: 100%; height: auto; margin: 10px 0; } function setLanguage(lang) { const elements = document.querySelectorAll('\[data-lang\]'); elements.forEach(el => { el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none'; }); } function toggleLanguageMenu() { const menu = document.getElementById("languageMenu"); menu.style.display = menu.style.display === "block" ? "none" : "block"; } window.onclick = function(event) { const menu = document.getElementById("languageMenu"); if (!event.target.matches('.lang-button')) { if (menu.style.display === "block") { menu.style.display = "none"; } } }
 
-This project focuses on utilizing Android smartphones' built-in Bluetooth Low Energy (BLE) functionality to create Phantom Bluetooth Device Advertisements, similar to what is known, for instance, in the case of the Flipper Zero. While other apps are available that provide similar functionality, the objective of this app is to enhance convenience and user-friendliness in the process.
+Bluetooth LE Spam
+=================
 
+Language
 
-#### [For Support, Join the Discord Server](https://discord.gg/x4e4Gma585)
+[Türkçe](#) [Русский](#)
 
-> [!NOTE]
-> This project is not actively updated due to no further optimizations to the exploit.
-> Contributions from anyone are appreciated.   
+Bu proje, Android akıllı telefonların yerleşik Bluetooth Düşük Enerji (BLE) işlevselliğini kullanarak hayali Bluetooth cihaz reklamları oluşturmayı amaçlıyor. Örneğin, Flipper Zero gibi cihazlarda bilinen bir yöntemdir. Diğer benzer uygulamalar mevcut olsa da, bu uygulamanın amacı kullanıcı dostu bir deneyim sunmaktır.
 
-## Requirements
-- Android 8.0 (API level 26) or later
-> [!TIP]
-> If you don't know your API level visit [SDK Platform release notes](https://developer.android.com/tools/releases/platforms).
-> You also can view your Android version in the Info tab in settings.
-- You can not run the app on IOS or PC (even with emulators/VM's)
+Gereksinimler
+-------------
 
-## Functionality
-### Google Fast Pair (Android Devices)
-This app is capable of spoofing BLE advertisers that mimic the usage of the Google Fast Pair Service, leading to an influx of unwanted pop-up notifications on the receiving device.
+*   Android 8.0 (API seviyesi 26) veya üstü
+*   Bu uygulama IOS veya PC'de çalıştırılamaz (emülatör/VM ile bile)
 
-For additional information about the Google Fast Pair Service, you can find it [here](https://developers.google.com/nearby/fast-pair/landing-page)
+İşlevsellik
+-----------
 
-### Microsoft Swift Pair (Windows Devices)
-This app can spoof BLE advertisers that mimic devices supporting the Microsoft Swift Pairing Service. If Swift Pair notifications are enabled on a nearby Windows 10 (or later) device, it will receive a flood of notifications regarding nearby devices.
+### Google Fast Pair (Android Cihazlar)
 
-For additional information about the Microsoft Swift Pair Service, you can find it [here](https://learn.microsoft.com/en-us/windows-hardware/design/component-guidelines/bluetooth-swift-pair)
+Bu uygulama, Google Fast Pair hizmetini taklit eden BLE reklamlarını taklit edebilir ve hedef cihaza gereksiz bildirimlerin gelmesine neden olur.
 
-### Easy Setup (Samsung)
-With the Easy Setup functionality, the app is capable of generating Bluetooth Low Energy Advertisement Sets that will trigger popups on Samsung devices specifically.
+### Microsoft Swift Pair (Windows Cihazlar)
 
-### Apple Device Popups (Apple devices)
-This app can spoof various Apple devices via Bluetooth Low Energy, which can be detected by iOS devices, resulting in a flood of unwanted popups on the receiving iOS device.
+Bu uygulama, Microsoft Swift Pair hizmetini destekleyen cihazları taklit eden BLE reklamlarını gönderebilir. Eğer Swift Pair bildirimleri açıksa, yakınlardaki bir Windows 10 veya daha yeni bir cihaz sürekli bildirimler alır.
 
-### Apple Action Modals (Apple)
-By spoofing Bluetooth Low Energy advertisers, this app can prompt iOS devices to open unwanted modals and popups, imitating certain Apple-specific actions.
+### Kolay Kurulum (Samsung)
 
-### Apple iOS 17 Crash (Apple) SEMI-PATCHED
-With some modifications to the advertised BLE package, it is possible to trigger a reboot in various iOS 17 devices. This causes the targeted iPhone to temporarily freeze for a few minutes before automatically restarting. (iOS Crash is considered half-fixed due to the release of iOS 17.2 , it may still work on some devices.).
+Uygulama, özellikle Samsung cihazlarında açılır pencereleri tetikleyen BLE reklam setleri oluşturabilir.
 
-> [!NOTE]
-> To achieve optimal results, it is recommended to set the advertising interval to a value between 20 and 100 milliseconds. Additionally, locking and unlocking the targeted iPhone can aid in the process.
+### Apple Cihaz Bildirimleri (Apple cihazlar)
 
-### Lovespouse (Adult Toys)
-With this functionality, it is possible to enable or disable various adult toys that support the Lovespouse app. Additionally, the "Denial of Pleasure" can be executed by selecting the Lovespouse Stops List and setting the repeat mode to Repeat List. More information on this topic can be found [here](https://mandomat.github.io/2023-11-13-denial-of-pleasure/).
+Bu uygulama, Bluetooth Düşük Enerji yoluyla çeşitli Apple cihazlarını taklit edebilir ve iOS cihazlarında istenmeyen açılır bildirimlerin gelmesine neden olabilir.
 
-### Kitchen Sink (Everything at once)
-Utilizing this functionality, the app randomly generates BLE advertisement packages based on all other features. This leads to the highest number of affected devices in the vicinity.
+### Apple iOS 17 Çökmesi (Apple) YARI-ONARILDI
 
-### Spam Detector (Detect Spammers)
-The Spam Detector tool allows you to detect nearby spammers, even on the lock screen. It can identify spam from Flipper Zeros, our app, and various other software and scripts. Once your device has detected spam, it will send you a notification, indicating whether it was sent by a Flipper Zero or another source.
+Gönderilen BLE paketinde bazı değişiklikler yaparak çeşitli iOS 17 cihazlarında yeniden başlatma tetiklenebilir. Bu, hedef iPhone’un geçici olarak donmasına ve ardından otomatik olarak yeniden başlatılmasına neden olur.
 
-> [!NOTE]
-> Location permission and background location access are required for this feature to work.
-> These permissions are necessary because Android mandates them for Bluetooth scanning in the background.
-> It's important to note that the app will NOT collect your location data.
+### Lovespouse (Yetişkin Oyuncakları)
 
-## Range
-Simply put, the range of Bluetooth Low Energy (BLE) can vary between devices; some may have a long range, while others may have a short range.
+Bu özellik, Lovespouse uygulamasını destekleyen çeşitli yetişkin oyuncaklarını etkinleştirip devre dışı bırakabilir. Daha fazla bilgiye [buradan](https://mandomat.github.io/2023-11-13-denial-of-pleasure/) ulaşabilirsiniz.
 
-The official Bluetooth Low Energy API provided by Google's Android SDK allows you to set the TX Power level and include it in the advertiser's payload. However, it doesn't permit direct modification of the byte values actually transmitted in the payload. This limitation affects the range of the Fast Pair functionality. Receiving devices calculate the transmitter's proximity based on the actual received signal strength and the transmitted byte in the payload, which contains the TX Power level the transmitter used.
+### Her Şeyi Bir Arada (Hepsi aynı anda)
 
-Devices like the Flipper Zero, however, have the capability to modify this byte, significantly extending their range.
+Bu işlevsellik, uygulamanın diğer tüm özelliklerinden rastgele BLE reklam paketleri oluşturur. Bu, çevredeki en fazla sayıda cihazı etkiler.
 
-## Installation
-You can clone the repository and open it in Android Studio to install the app, or simply use the installable APK files from the [Release Section](https://github.com/simondankelmann/Bluetooth-LE-Spam/releases). You can also download it from F-Droid [here](https://f-droid.org/packages/de.simon.dankelmann.bluetoothlespam/).
+Yükleme
+-------
 
-If you're an end-user looking for a fully functional app, download the Release APK for optimal performance (simply go for this one). If you're a developer or tester, opt for the Debug APK for testing and debugging purposes.
+Proje deposunu klonlayıp Android Studio'da açarak uygulamayı kurabilirsiniz ya da [Sürüm Bölümünden](https://github.com/simondankelmann/Bluetooth-LE-Spam/releases) indirilebilir APK dosyalarını kullanabilirsiniz.
 
-## Credit
-- [mh from mobile-hacker.com](https://www.mobile-hacker.com/author/boni11/) for the [Article / Guideline](https://www.mobile-hacker.com/2023/09/07/spoof-ios-devices-with-bluetooth-pairing-messages-using-android/) about using the nRF Connect App to Spoof iOS Devices
+Görseller
+---------
 
-- [Willy-JL](https://github.com/Willy-JL), [ECTO-1A](https://github.com/ECTO-1A), [Spooks4567](https://github.com/Spooks4576) and [Mrproxy](https://github.com/Mr-Proxy-source) for their contribution in the BLE Spam App on the Flipper Zero
+*   ![Başlangıç ekranı](https://raw.githubusercontent.com/AHE-TEAM/Bluetooth-LE-Spam/refs/heads/main/Assets/Screenshots/1.0.8/Screenshot_20241029_145046_Bluetooth%20LE%20Spam.png)
+*   ![Reklam ekranı](https://raw.githubusercontent.com/AHE-TEAM/Bluetooth-LE-Spam/refs/heads/main/Assets/Screenshots/1.0.8/Screenshot_20241029_145109_Bluetooth%20LE%20Spam.png)
+*   ![Spam tespit ekranı 1](https://raw.githubusercontent.com/simondankelmann/Bluetooth-LE-Spam/refs/heads/main/Assets/Screenshots/1.0.8/detector1.jpeg)
+*   ![Spam tespit ekranı 2](https://raw.githubusercontent.com/simondankelmann/Bluetooth-LE-Spam/refs/heads/main/Assets/Screenshots/1.0.8/detector2.jpeg)
+*   ![Ayarlar ekranı](https://raw.githubusercontent.com/AHE-TEAM/Bluetooth-LE-Spam/refs/heads/main/Assets/Screenshots/1.0.8/Screenshot_20241029_145430_Bluetooth%20LE%20Spam.png)
 
-- [FuriousMAC](https://github.com/furiousMAC) and [Hexway](https://github.com/hexway) for their prior researches
+Sorumluluk Reddi
+----------------
 
-- [mandomat](https://mandomat.github.io/aboutme/) for the research of [Denial of Pleasure](https://mandomat.github.io/2023-11-13-denial-of-pleasure/)
+Bu depo, Bluetooth Düşük Enerji (BLE) protokolü hakkında eğitim ve araştırma amaçlıdır. Kullanıcılar, yasaların gerektirdiği şekilde tüm yasal düzenlemelere uymakla sorumludur.
 
-- [tutozz](https://github.com/tutozz) for the research of Easy Setup Buds in Android
+Katkıda bulunmak isterseniz, projenin hedeflerine uygun olmasına dikkat ediniz. Daha fazla bilgi için [Discord sunucumuza](https://discord.gg/x4e4Gma585) katılabilirsiniz.
 
-- [K3YOMI](https://github.com/K3YOMI) for the spam detector idea
+Этот проект направлен на создание фиктивных рекламных объявлений для Bluetooth-устройств, используя встроенные функции Bluetooth Low Energy (BLE) на Android-смартфонах. Например, метод, известный на таких устройствах, как Flipper Zero. Хотя существуют другие аналогичные приложения, цель этого приложения — предложить удобный интерфейс.
 
-- [Glorious Gizmos](https://www.tiktok.com/discover/glorious-gizmos) for making content and tutorials on our app
-- And special thanks to anyone else who has been involved in prior research and publications related to this topic.
+Требования
+----------
 
-## Screenshots
-<details>
+*   Android 8.0 (API уровень 26) или выше
+*   Это приложение не может работать на iOS или ПК (даже с эмулятором/виртуальной машиной)
 
-[![](Assets/Screenshots/1.0.5/start.jpeg)](#)
-[![](Assets/Screenshots/1.0.5/advertise.jpeg)](#)
-[![](Assets/Screenshots/1.0.8/detector1.jpeg)](#)
-[![](Assets/Screenshots/1.0.8/detector2.jpeg)](#)
-[![](Assets/Screenshots/1.0.5/settings.jpeg)](#)
-</details>
+Функциональность
+----------------
 
-## Disclaimer
-Disclaimer for Bluetooth Low Energy Protocol Investigation Repository
+### Google Fast Pair (Android устройства)
 
-This repository contains code for the investigation and experimentation of the Bluetooth Low Energy (BLE) protocol. Please be aware of the following disclaimers before using or contributing to this repository:
+Это приложение может имитировать рекламу BLE, имитирующую службу Google Fast Pair, вызывая на целевом устройстве ненужные уведомления.
 
-1. Purpose: The code and information provided in this repository are intended for educational and research purposes and is just a proof of concept. It is not intended for any malicious or harmful activities.
+### Microsoft Swift Pair (устройства Windows)
 
-2. Legal Compliance: Users are responsible for ensuring that their use of the code and information in this repository complies with all applicable laws and regulations, including those governing wireless communication and intellectual property rights.
+Это приложение может отправлять рекламу BLE, имитируя устройства с поддержкой Microsoft Swift Pair. Если уведомления Swift Pair включены, близлежащие устройства с Windows 10 или новее будут получать постоянные уведомления.
 
-3. No Warranty: The code and information provided in this repository are provided "as is" without any warranties, expressed or implied. The authors and contributors are not responsible for any consequences resulting from the use of this code.
+### Легкая настройка (Samsung)
 
-4. Risks: Experimenting with BLE protocols can have potential security and privacy implications. Users should exercise caution and use this code responsibly, respecting the privacy and security of devices and systems.
+Приложение может создавать наборы рекламы BLE, вызывающие всплывающие окна на устройствах Samsung.
 
-5. Contribution Guidelines: If you contribute to this repository, ensure that your contributions comply with the project's goals and the repository's license. By contributing, you agree to license your contributions under the same license as this repository.
+### Уведомления для устройств Apple (Apple устройства)
 
-6. Support: This repository is not maintained for production use. The authors and contributors may not provide support or updates regularly.
+Это приложение может имитировать различные устройства Apple с помощью Bluetooth Low Energy, вызывая нежелательные всплывающие уведомления на iOS-устройствах.
 
-By using and contributing to this repository, you agree to these disclaimers and guidelines. If you do not agree, please refrain from using or contributing to this repository.
+### Краш iOS 17 (Apple) ЧАСТИЧНО ИСПРАВЛЕН
 
-For any questions or concerns, please contact the repository maintainers on Discord or Github.
+Внося некоторые изменения в отправляемый пакет BLE, можно вызвать перезагрузку на некоторых устройствах iOS 17, заставляя целевой iPhone временно зависать, а затем автоматически перезагружаться.
+
+### Lovespouse (взрослые игрушки)
+
+Эта функция позволяет включать и отключать различные взрослые игрушки, поддерживающие приложение Lovespouse. Больше информации можно найти [здесь](https://mandomat.github.io/2023-11-13-denial-of-pleasure/).
+
+### Все вместе (все функции одновременно)
+
+Эта функция создает случайные рекламные пакеты BLE с использованием всех функций приложения, чтобы затронуть максимальное количество устройств вокруг.
+
+Установка
+---------
+
+Вы можете клонировать репозиторий проекта и открыть приложение в Android Studio, или использовать загружаемые APK-файлы в [Разделе выпусков](https://github.com/simondankelmann/Bluetooth-LE-Spam/releases).
+
+Изображения
+-----------
+
+*   ![Başlangıç ekranı](https://raw.githubusercontent.com/AHE-TEAM/Bluetooth-LE-Spam/refs/heads/main/Assets/Screenshots/1.0.8/Screenshot_20241029_145046_Bluetooth%20LE%20Spam.png)
+*   ![Reklam ekranı](https://raw.githubusercontent.com/AHE-TEAM/Bluetooth-LE-Spam/refs/heads/main/Assets/Screenshots/1.0.8/Screenshot_20241029_145109_Bluetooth%20LE%20Spam.png)
+*   ![Spam tespit ekranı 1](https://raw.githubusercontent.com/simondankelmann/Bluetooth-LE-Spam/refs/heads/main/Assets/Screenshots/1.0.8/detector1.jpeg)
+*   ![Spam tespit ekranı 2](https://raw.githubusercontent.com/simondankelmann/Bluetooth-LE-Spam/refs/heads/main/Assets/Screenshots/1.0.8/detector2.jpeg)
+*   ![Ayarlar ekranı](https://raw.githubusercontent.com/AHE-TEAM/Bluetooth-LE-Spam/refs/heads/main/Assets/Screenshots/1.0.8/Screenshot_20241029_145430_Bluetooth%20LE%20Spam.png)
+
+Отказ от ответственности
+------------------------
+
+Этот репозиторий предназначен для обучения и исследования протокола Bluetooth Low Energy (BLE). Пользователи несут ответственность за соблюдение всех применимых законодательных норм.
+
+Если вы хотите внести свой вклад, убедитесь, что он соответствует целям проекта. Для получения дополнительной информации присоединяйтесь к нашему [серверу Discord](https://discord.gg/x4e4Gma585).
